@@ -24,7 +24,7 @@ public class Grille {
     public boolean deplacementAutorise(Batisseur unBatisseur, String direction) {
         int x = unBatisseur.x;
         int y = unBatisseur.y;
-        if (direction == "H") {
+        if ("H".equals(direction)) {
             if (x == 0) {
                 return false;
             }
@@ -40,7 +40,7 @@ public class Grille {
 
         }
 
-        if (direction == "D") {
+        if ("D".equals(direction)) {
             if (y == 4) {
                 return false;
             }
@@ -55,7 +55,7 @@ public class Grille {
             }
 
         }
-        if (direction == "G") {
+        if ("G".equals(direction)) {
             if (y == 0) {
                 return false;
             }
@@ -70,7 +70,7 @@ public class Grille {
             }
 
         }
-        if (direction == "B") {
+        if ("B".equals(direction)) {
             if (x == 4) {
                 return false;
             }
@@ -89,22 +89,27 @@ public class Grille {
     }
 
     public void deplacerBatisseur(Batisseur unBatisseur, String Direction) {
-        cases[unBatisseur.x][unBatisseur.y].batisseurCourant = null;
+        
+        
         if (deplacementAutorise(unBatisseur, Direction)) {
+            //On supprime le batisseur de la case actuelle car celui ci va être
+            //déplacé
+            cases[unBatisseur.x][unBatisseur.y].batisseurCourant = null;
 
-            if (Direction == "H") {
+            if ("H".equals(Direction)) {
                 unBatisseur.x--;
             }
-            if (Direction == "B") {
+            if ("B".equals(Direction)) {
                 unBatisseur.x++;
             }
-            if (Direction == "D") {
+            if ("D".equals(Direction)) {
                 unBatisseur.y++;
             }
-            if (Direction == "G") {
+            if ("G".equals(Direction)) {
                 unBatisseur.y--;
             }
         }
+        //On réaffecte le battiseur à sa case après déplacement
         cases[unBatisseur.x][unBatisseur.y].batisseurCourant = unBatisseur;
 
     }

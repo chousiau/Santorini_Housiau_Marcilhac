@@ -33,7 +33,7 @@ public class SantoriniMARCILHACHOUSIAUPETI {
         
         while(running){
             String ok=SC.nextLine();
-            if(ok=="Q"){
+            if("Q".equals(ok)){
                 running=false;
             }
           if(uneGrille.deplacementAutorise(unBatisseur,ok )){
