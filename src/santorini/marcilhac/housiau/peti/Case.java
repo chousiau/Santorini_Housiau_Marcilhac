@@ -10,23 +10,31 @@ package santorini.marcilhac.housiau.peti;
  * @author marci
  */
 public class Case {
-    
+
     int nbEtage;
-    boolean presenceBatiment;
-    boolean presenceBatisseur;
+    Batisseur batisseurCourant;
     
-    public boolean ajouterEtage(){
-        if (nbEtage<3){
-            nbEtage ++;
+    boolean presenceDome;
+
+    public Case(int Etage, Batisseur batisseur, boolean Dome) {
+        nbEtage = Etage;
+        batisseurCourant = batisseur;
+        presenceDome = Dome;
+
+    }
+
+    public boolean ajouterEtage() {
+        if (nbEtage < 3) {
+            nbEtage++;
             return true;
-        }
-        else {
+        } else {
             return false;
         }
     }
-    public boolean batimentComplet (){
+
+    public boolean batimentComplet() {
         return nbEtage == 3;
-        
+
     }
-    
+
 }

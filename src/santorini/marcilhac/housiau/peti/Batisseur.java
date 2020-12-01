@@ -13,6 +13,9 @@ public class Batisseur {
     
     int numEtage;
     Joueurs Proprietaire;
+    int x;
+    int y;
+    
     
     
     public boolean etreGagnantPourJoueur(){
