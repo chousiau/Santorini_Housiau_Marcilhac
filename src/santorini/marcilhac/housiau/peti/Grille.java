@@ -88,22 +88,44 @@ public class Grille {
         return true;
     }
 
-    public void deplacerBatisseur(Batisseur unBatisseur,String Direction) {
-        
-        if (deplacementAutorise(unBatisseur, Direction)){
-            if (Direction == "H"){
+    public void deplacerBatisseur(Batisseur unBatisseur, String Direction) {
+        cases[unBatisseur.x][unBatisseur.y].batisseurCourant = null;
+        if (deplacementAutorise(unBatisseur, Direction)) {
+
+            if (Direction == "H") {
                 unBatisseur.x--;
             }
-            if (Direction == "B"){
+            if (Direction == "B") {
                 unBatisseur.x++;
             }
-            if (Direction == "D"){
+            if (Direction == "D") {
                 unBatisseur.y++;
             }
-            if (Direction == "G"){
+            if (Direction == "G") {
                 unBatisseur.y--;
             }
         }
+        cases[unBatisseur.x][unBatisseur.y].batisseurCourant = unBatisseur;
 
+    }
+
+    public void afficherGrilleSurConsole() {
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 5; j++) {
+                if (cases[i][j].batisseurCourant != null) {
+                    System.out.print("B");
+                } else if (cases[i][j].presenceDome) {
+                    System.out.print("D");
+                } else if (cases[i][j].nbEtage != 0) {
+                    System.out.print(cases[i][j].nbEtage);
+                } else if (cases[i][j].nbEtage == 0) {
+                    System.out.print("O");
+                    
+                }
+            
+            }
+            System.out.print("\n");
+        }
+            
     }
 }
