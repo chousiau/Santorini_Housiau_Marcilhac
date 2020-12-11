@@ -133,4 +133,12 @@ public class Grille {
         }
             
     }
+    
+    public boolean construireEtage(int numLigne, int numColonne){
+        if (cases[numLigne][numColonne].nbEtage<3){
+            cases[numLigne][numColonne].nbEtage++;
+            return true;
+        }
+        return false;
+    }
 }
